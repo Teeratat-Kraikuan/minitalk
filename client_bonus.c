@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkraikua <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 21:55:45 by tkraikua          #+#    #+#             */
-/*   Updated: 2022/04/18 21:55:45 by tkraikua         ###   ########.fr       */
+/*   Created: 2022/04/18 13:56:22 by tkraikua          #+#    #+#             */
+/*   Updated: 2022/04/18 13:56:22 by tkraikua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	received(int sig, siginfo_t *info, void *ucontext)
 	(void)sig;
 	(void)info;
 	(void)ucontext;
+	write(1, "message sent.\n", 14);
 	exit(0);
 }
 
