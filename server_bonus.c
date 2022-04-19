@@ -54,6 +54,7 @@ int	main(void)
 	write(1, "\n", 1);
 	sa.sa_sigaction = &handler;
 	sa.sa_flags = SA_SIGINFO;
+	sigemptyset(&sa.sa_mask);
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 	while (1)

@@ -85,17 +85,21 @@ int	main(int argc, char **argv)
 	check_arg(argc, argv);
 	send.sa_sigaction = &send_message;
 	send.sa_flags = SA_SIGINFO;
+	sigemptyset(&send.sa_mask);
 	sigaction(SIGUSR1, &send, NULL);
 	end.sa_sigaction = &received;
 	end.sa_flags = SA_SIGINFO;
+	sigemptyset(&end.sa_mask);
 	sigaction(SIGUSR2, &end, NULL);
 	g_mes.message = argv[2];
 	g_mes.b_cnt = 0;
 	bit = ((*g_mes.message) >> g_mes.b_cnt) % 2;
 	if (bit)
-		kill(ft_atoi(argv[1]), SIGUSR2);
-	else
-		kill(ft_atoi(argv[1]), SIGUSR1);
+		if (kill(ft_atoi(argv[1]), SIGUSR2) == -1)
+			return (2);
+	if (!bit)
+		if (kill(ft_atoi(argv[1]), SIGUSR1) == -1)
+			return (2);
 	while (1)
 		pause();
 	return (0);
