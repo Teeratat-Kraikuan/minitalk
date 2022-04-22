@@ -42,7 +42,7 @@ void	check_arg(int argc, char **argv)
 	}
 	if (ft_atoi(argv[1]) <= 0)
 	{
-		write(1, "Incalid PID.\n", 13);
+		write(1, "Invalid PID.\n", 13);
 		exit(1);
 	}
 }
