@@ -70,6 +70,7 @@ void	send_message(int sig, siginfo_t *info, void *ucontext)
 	else
 		g_mes.b_cnt++;
 	bit = ((*g_mes.message) >> g_mes.b_cnt) % 2;
+	usleep(50);
 	if (bit)
 		kill(info->si_pid, SIGUSR2);
 	else

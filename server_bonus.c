@@ -42,6 +42,7 @@ void	handler(int sig, siginfo_t *info, void *ucontext)
 		}
 		letter = 0;
 	}
+	usleep(50);
 	kill(info->si_pid, SIGUSR1);
 }
 
