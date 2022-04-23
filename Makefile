@@ -13,14 +13,14 @@
 FLAGS = -Wall -Werror -Wextra
 
 all : server client
-		gcc $(FLAGS) server.o -o server
-		gcc $(FLAGS) client.o -o client
 
 server :
 		gcc $(FLAGS) -c server.c -o server.o
+		gcc $(FLAGS) server.o -o server
 
 client :
 		gcc $(FLAGS) -c client.c -o client.o
+		gcc $(FLAGS) client.o -o client
 
 bonus : all
 		gcc $(FLAGS) -c server_bonus.c -o server_bonus.o
